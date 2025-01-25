@@ -9,7 +9,7 @@ buttons.forEach((button) => {
     });
   });
 
-
+  const calculator = document.querySelector('#calculator');
 
   
 
