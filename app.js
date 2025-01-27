@@ -14,7 +14,7 @@ let operation = '';
 calculator.addEventListener('click', ({target}) => {
     const buttonText = target.innerText;
 
-    if (target.classList.contains('button')) {   //really hope this is right 
+    if (target.classList.contains('button')) { // really hope this is right
         if (buttonText === 'C') {
             firstValue = '';
             secondValue = ''; 
@@ -24,5 +24,20 @@ calculator.addEventListener('click', ({target}) => {
                 if (firstValue !== '' && secondValue !== '' && operation !== '') {
                     calculate();
                 }
+        } else if (['+', '-', '*', '/'].includes(buttonText)) {
+            if (firstValue !== '') {
+                if (secondValue !== '') {
+                    calculate();
+                }
+                operation = buttonText;
+                secondValue = firstValue;
+                firstValue = '';
+            }
+        } else {
+            firstValue += buttonText;
+            totalDisplay.innerText = firstValue;
+        }
+    }
+});
 
- 
+/*-------------------------------- Functions --------------------------------*/
