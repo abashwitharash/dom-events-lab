@@ -1,23 +1,28 @@
 /*-------------------------------- Constants --------------------------------*/
-const buttons = document.querySelectorAll('.button');
-
-buttons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-        console.log(event.target.innerText);
-    }); 
-});
-
 const calculator = document.querySelector('#calculator')
 
-
-
+const totalDisplay = document.querySelector('.display');
+totalDisplay.innerText = 0;  // displays 0 as default 
 
 /*-------------------------------- Variables --------------------------------*/
-let firstValue = '';
+let firstValue = '';  //starting with empty strings so users can choose 
 let secondValue = '';
 let operation = '';
 /*------------------------ Cached Element References ------------------------*/
 
 /*----------------------------- Event Listeners -----------------------------*/
+calculator.addEventListener('click', ({target}) => {
+    const buttonText = target.innerText;
 
-/*-------------------------------- Functions --------------------------------*/
+    if (target.classList.contains('button')) {   //really hope this is right 
+        if (buttonText === 'C') {
+            firstValue = '';
+            secondValue = ''; 
+            operation = '';
+            totalDisplay.innerText = 0;
+        } else if (buttonText === '=') {
+                if (firstValue !== '' && secondValue !== '' && operation !== '') {
+                    calculate();
+                }
+
+ 
