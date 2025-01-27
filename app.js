@@ -41,3 +41,25 @@ calculator.addEventListener('click', ({target}) => {
 });
 
 /*-------------------------------- Functions --------------------------------*/
+const calculate = () => {
+    let result;
+    const first = parseFloat(firstValue); //had to google how to convert strings to numbers 
+    const second = parseFloat(secondValue);
+
+ if (operation === '-') {
+    result = second - first;
+ } else if (operation === '+') {
+    result = second + first;
+ } else if (operation === '/') {   //adding the functions was simpler but damn was hard 
+    result = second / first; 
+ } else if (operation === '*') {
+    result = second * first;
+ }
+ 
+ totalDisplay.innerText = result;
+  firstValue = result.toString();  // had to get help here with students and google...
+  secondValue = '';
+  operation = '';
+ };
+  
+ //took me 10 hours to complete - feels like I was unprepared for this. 
